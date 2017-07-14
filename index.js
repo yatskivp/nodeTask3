@@ -39,21 +39,21 @@ function sort(arr,val){
 	var arrVal = [], tmpObj = {}, tmpArr = [];
 	arr.forEach(function(item){
 		for(var key in item){
-            arrVal.push([key,item[key]]);
-            if(item[key][val]%1){
-                count.number+=1
-            }else{
-                count.number+=1;
-                count.int+=1
-            }
+            		arrVal.push([key,item[key]]);
+            		if(item[key][val]%1){
+                		count.number+=1
+            		}else{
+                		count.number+=1;
+                		count.int+=1
+            		}
 		}
 	})	
 	arrVal.sort((a,b) => b[1][val]-a[1][val]);
 	arrVal.forEach((item) => {
-        tmpObj[item[0]] = item[1];
-        tmpArr.push(tmpObj);
-        tmpObj = {};
-    })
+        	tmpObj[item[0]] = item[1];
+        	tmpArr.push(tmpObj);
+        	tmpObj = {};
+    	})
 	return tmpArr
 }
 
@@ -113,10 +113,10 @@ app.route('/scores')
                 });
                 res.status(200).json({operation : 'User added'});
             }else{
-            let err = new Error(`User or/and some user's parameter(s) is invalide`);
-            err.name = '400'; 
-            next (err);
-        }         
+            	let err = new Error(`User or/and some user's parameter(s) is invalide`);
+            	err.name = '400'; 
+            	next (err);
+           }         
         next();
     }else{
         let err = new Error(valid.error);
@@ -193,5 +193,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(8000, () =>{
-    console.log('Startted');
+    console.log('Startted on 8000 port');
 })
